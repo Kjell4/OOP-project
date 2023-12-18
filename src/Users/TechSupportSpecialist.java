@@ -17,6 +17,9 @@ public class TechSupportSpecialist extends Employee {
     
     Data database = new Data();
 
+    public void helloWorld() {
+        System.out.println("Hello");
+    }
     public void addOrder(Order order) {
         database.orders.add(order);
         System.out.println("[TechSupport] : Order was added successfully!");
