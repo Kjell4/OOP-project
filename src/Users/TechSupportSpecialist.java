@@ -20,6 +20,11 @@ public class TechSupportSpecialist extends Employee {
     public void helloWorld() {
         System.out.println("Hello");
     }
+    
+    public void helloElnur() {
+    	System.out.println("Hello commit to Elnur :)");
+    }
+    
     public void addOrder(Order order) {
         database.orders.add(order);
         System.out.println("[TechSupport] : Order was added successfully!");
