@@ -1,0 +1,35 @@
+package Database;
+
+import java.util.Vector;
+import SystemParts.Course;
+import SystemParts.Mark;
+import SystemParts.Order;
+import Users.Student;
+import Users.Teacher;
+import Users.User;
+
+public class Data {
+	
+	public Data() {
+	}
+	
+	public Vector<User> users = new Vector<User>();
+	public Vector<Course> courses = new Vector<Course>();
+	public Vector<Mark> marks = new Vector<Mark>();
+	public Vector<Student> students = new Vector<Student>();
+	public Vector<Teacher> teachers = new Vector<Teacher>();
+	public Vector<Order> orders = new Vector<Order>();
+	
+	public Vector<User> getData() {
+		return users;
+	}
+
+	public User authenticateUser(String login, String password) {
+	    for (User user : users) {
+	        if (user.getLogin().equals(login) && user.getPassword().equals(password)) {
+	            return user; 
+	        }
+	    }
+	    return null;
+	}
+}
