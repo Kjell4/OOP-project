@@ -75,10 +75,6 @@ public abstract class User {
 	public String makeRequest() {
 	        //TODO
 	        return "";
-	} 
-
-	public String toString(){
-		return "My name is Bibo"
 	}
 	
 }
