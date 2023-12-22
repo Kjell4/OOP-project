@@ -25,8 +25,11 @@ public class Test {
 		Researcher currentUser = (Researcher)session.getCurrentUser();
 		System.out.println(currentUser);
 		
-		currentUser.makeResearchPaper("Clean Code", Date.valueOf("2023-03-03"), 50, "AlmatyKitap", "PPP", "reference", "pakita");
-		currentUser.printPapers();
+		currentUser.makeResearchPaper("Clean Code", Date.valueOf("2023-03-03"), 50, "AlmatyKitap", "pakita");
+		currentUser.makeResearchPaper("Retake", Date.valueOf("2023-01-03"), 41, "Atamura", "pakita");
+//		currentUser.printPapersByPublishedDate();
+		currentUser.printPapersByArticleLength();
+		currentUser.getCitation(0, "Bibtex");
 	
 		session.logout();
 		currentUser = (Researcher) session.getCurrentUser();

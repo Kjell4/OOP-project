@@ -1,9 +1,13 @@
 package Users;
 
+import java.util.Collections;
 import java.util.Date;
-import java.util.Vector;
 import Research.ResearchPaper;
 import Research.ResearchProject;
+import Comparators.ArticleLengthComparator;
+import Comparators.PublishedDateComparator;
+import Database.Data;
+import Exceptions.NoSuchFormatException;
 
 public class Researcher extends User{
 
@@ -22,19 +26,43 @@ public class Researcher extends User{
 	        return this.getLogin().equals(r.getLogin()) && this.getPassword().equals(r.getPassword());
 	}
 	 
-	Vector<ResearchPaper> papers = new Vector<>();
-	Vector<ResearchProject> projects = new Vector<>();
+	Data database = new Data();
 	 
-	public Vector<ResearchPaper> makeResearchPaper(String topic, Date date, int pages, String publisher, String citations, String references, String authors) {
-		 ResearchPaper paper = new ResearchPaper(topic, date, pages, publisher, citations, references,authors);
-		 papers.add(paper);
-		 return papers;
+	public void makeResearchPaper(String topic, Date date, int pages, String publisher, String authors) {
+		 ResearchPaper paper = new ResearchPaper(topic, date, pages, publisher, authors);
+		 database.papers.add(paper);
 	}
 	 
-	public void printPapers() {
-		System.out.println(papers);
+	public void printPapersByArticleLength() {
+		ArticleLengthComparator c = new ArticleLengthComparator();
+		Collections.sort(database.papers, c);
+		System.out.println(database.papers);
+	} 
+	
+	public void printPapersByPublishedDate() {
+		PublishedDateComparator c = new PublishedDateComparator();
+		Collections.sort(database.papers, c);
+		System.out.println(database.papers);
 	}
-	 
-	 
+	
+	public void getCitation(int num, String format) {
+		try {
+			if(format.equalsIgnoreCase("PlainText")) {
+				System.out.println(database.papers.elementAt(num).getTopic() + " | " + database.papers.elementAt(num).getDate() + " | " + database.papers.elementAt(num).getPages() + " | " + database.papers.elementAt(num).getPublisher());
+			}
+			else if(format.equalsIgnoreCase("Bibtex")) {
+				System.out.println("{\n  authors = {" + database.papers.elementAt(num).getAuthors() + "},\n"
+	                + "  topic = {" + database.papers.elementAt(num).getTopic() + "},\n"
+	                + "  date = {" + database.papers.elementAt(num).getDate() + "}\n"
+	                + "}");
+			}
+			else {
+				NoSuchFormatException.invalidFormat();
+			}
+		}
+		catch(NoSuchFormatException e){
+			System.out.println(e.getMessage());
+		}
+	}
 	
 }

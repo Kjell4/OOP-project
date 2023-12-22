@@ -2,33 +2,27 @@ package Research;
 
 import java.util.Date;
 
-public class ResearchPaper {
+import Exceptions.NoSuchFormatException;
+
+public class ResearchPaper implements Comparable<ResearchPaper>{
 	private String topic;
 	private Date date;
 	private int pages;
 	private String publisher;
-	private String citations;
-	private String references;
 	private String authors;
 	
-	public ResearchPaper(String topic, Date date, int pages, String publisher, String citations, String references,
-			String authors) {
+	public ResearchPaper(String topic, Date date, int pages, String publisher, String authors) {
 		super();
 		this.topic = topic;
 		this.date = date;
 		this.pages = pages;
 		this.publisher = publisher;
-		this.citations = citations;
-		this.references = references;
 		this.authors = authors;
 	}
 	
-	public String getCitation() {
-		return getTopic() + " | " + getDate() + " | " + getPages() + " | " + getPublisher();
-	}
-	
 	public String toString() {
-		return getCitation();
+		return "ResearchPaper [topic=" + topic + ", date=" + date + ", pages=" + pages + ", publisher=" + publisher
+				+ ", authors=" + authors + "] \n";
 	}
 
 	public String getTopic() {
@@ -63,22 +57,6 @@ public class ResearchPaper {
 		this.publisher = publisher;
 	}
 
-	public String getCitations() {
-		return citations;
-	}
-
-	public void setCitations(String citations) {
-		this.citations = citations;
-	}
-
-	public String getReferences() {
-		return references;
-	}
-
-	public void setReferences(String references) {
-		this.references = references;
-	}
-
 	public String getAuthors() {
 		return authors;
 	}
@@ -86,4 +64,11 @@ public class ResearchPaper {
 	public void setAuthors(String authors) {
 		this.authors = authors;
 	}
+
+	public int compareTo(ResearchPaper o) {
+		if(this.getPages() > o.getPages()) return 1;
+		if(this.getPages() < o.getPages()) return -1;
+		return 0;
+	}
+	
 }

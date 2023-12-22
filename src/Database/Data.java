@@ -1,6 +1,9 @@
 package Database;
 
 import java.util.Vector;
+
+import Research.ResearchPaper;
+import Research.ResearchProject;
 import SystemParts.Course;
 import SystemParts.Mark;
 import SystemParts.Order;
@@ -19,6 +22,8 @@ public class Data {
 	public Vector<Student> students = new Vector<Student>();
 	public Vector<Teacher> teachers = new Vector<Teacher>();
 	public Vector<Order> orders = new Vector<Order>();
+	public Vector<ResearchPaper> papers = new Vector<>();
+	public Vector<ResearchProject> projects = new Vector<>();
 	
 	public Vector<User> getData() {
 		return users;
