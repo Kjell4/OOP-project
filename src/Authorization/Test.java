@@ -1,15 +1,20 @@
 package Authorization;
 import java.sql.Date;
-import Enums.EmployeePost;
-import Enums.ManagerType;
-import Users.Admin;
-import Users.Manager;
-import Users.Researcher;
-import Users.User;
+import Users.*;
+import Enums.*;
 
 public class Test {
 
 	public static void main(String[] args) {
+		Admin adminEren = new Admin("eren", "745f0", "Eren", "Yeager", "22B040578", EmployeePost.ADMIN, 145000, Date.valueOf("2023-02-21"));
+		Manager managerAzamat = new Manager("azzza", "aboba", "Azamat", "Alpysbay", "22B010445", EmployeePost.MANAGER, 451000, Date.valueOf("2022-12-12"), ManagerType.DEPARTMENT);
+		managerAzamat.addRequest(adminEren.makeRequest("Complain", "Wifi is not working", OrderType.COMPLAINT));
+		System.out.println(managerAzamat.viewRequests());
+		Dean dean = new Dean("Obama", "Barack", "DS78450A", "passworddd");
+		dean.signOrder(adminEren.getEmployeeOrder());
+		managerAzamat.addRequest(adminEren.getEmployeeOrder());
+		System.out.println(managerAzamat.viewRequests());
+
 		Admin admin = new Admin("admin", "777", "Bibolat", "Kaldybai", "22B000000", EmployeePost.ADMIN, 124000, Date.valueOf("2023-03-22"));
 
 		User u = new Researcher("ilias", "1234", "Ilias", "Bekturgan", "22B030327");

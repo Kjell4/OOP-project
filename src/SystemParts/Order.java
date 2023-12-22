@@ -16,12 +16,12 @@ public class Order {
     public Order() {
 
     }
-    public Order(String title, String content,String idFrom, Date date, OrderType orderType) {
+    public Order(String title, String content,String idFrom, OrderType orderType) {
         this.title = title;
         this.content = content;
         this.idFrom = idFrom;
-        this.date = date;
         this.orderType = orderType;
+        this.date = new Date();
         this.status = "pending";
     }
 
@@ -76,9 +76,9 @@ public class Order {
     @Override
     public String toString() {
         return "Order{" +
-                "title='" + title + '\n' +
-                ", content='" + content + '\n' +
-                ", idFrom='" + idFrom + '\n' +
+                "title=" + title + '\n' +
+                ", content=" + content + '\n' +
+                ", idFrom=" + idFrom + '\n' +
                 ", date=" + date + '\n' +
                 ", orderType=" + orderType +
                 ", status=" + status +

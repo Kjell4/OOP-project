@@ -72,9 +72,4 @@ public abstract class User {
 			this.id = id;
 	}
 
-	public String makeRequest() {
-	        //TODO
-	        return "";
-	}
-	
 }

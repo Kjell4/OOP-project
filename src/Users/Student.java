@@ -1,15 +1,16 @@
 package Users;
 
 import java.io.Serializable;
-import java.util.Objects;
 import java.util.HashMap;
 import java.util.Vector;
 
 import Database.Data;
 import Enums.Degree;
 import Enums.Faculty;
+import Enums.OrderType;
 import SystemParts.Course;
 import SystemParts.Mark;
+import SystemParts.Order;
 import SystemParts.Organization;
 
 public class Student extends User implements Serializable, Comparable<Object> {
@@ -39,7 +40,9 @@ public class Student extends User implements Serializable, Comparable<Object> {
 		this.credits = credits;
 		this.marks = marks;
 	}
-
+	public Order makeRequest(String title, String content, OrderType orderType) {
+		return new Order(title, content, this.getId(), orderType);
+	}
 	public int getLimitOfCredit() {
 		return limitOfCredit;
 	}

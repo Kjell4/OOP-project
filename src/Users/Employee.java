@@ -1,22 +1,35 @@
 package Users;
 import java.util.Date;
 
-import Enums.EmployeePost;
+import SystemParts.*;
+import Enums.*;
 
 public abstract class Employee extends User{
 	private EmployeePost post;
 	private int salary;
 	private Date hireDate;
+	private EmployeeOrder employeeOrder;
 	
 	public Employee(String login, String password, String name, String surname, String id, EmployeePost post, int salary, Date hireDate) {
 		super(login, password, name, surname, id);
 		this.post = post;
 		this.salary = salary;
 		this.hireDate = hireDate;
+		this.employeeOrder = null;
 	}
-	
+
+	public EmployeeOrder makeRequest(String title, String content, OrderType orderType) {
+		this.employeeOrder = new EmployeeOrder(title, content, this.getId(), orderType);
+		return employeeOrder;
+	}
+	@Override
 	public String toString() {
-		return super.toString() + "Post: " + getPost() + "\n" + "Salary: " + getSalary() + "\n" + "Hire Date: " + getHireDate() + "\n";
+		return "Employee{" +
+				"post=" + post +
+				", salary=" + salary +
+				", hireDate=" + hireDate +
+				", employeeOrder=" + employeeOrder +
+				'}';
 	}
 
 	public EmployeePost getPost() {
@@ -41,5 +54,13 @@ public abstract class Employee extends User{
 
 	public void setHireDate(Date hireDate) {
 		this.hireDate = hireDate;
+	}
+
+	public EmployeeOrder getEmployeeOrder() {
+		return employeeOrder;
+	}
+
+	public void setEmployeeOrder(EmployeeOrder employeeOrder) {
+		this.employeeOrder = employeeOrder;
 	}
 }

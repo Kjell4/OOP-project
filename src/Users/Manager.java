@@ -4,19 +4,18 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.Vector;
 import Database.Data;
-import Enums.EmployeePost;
-import Enums.ManagerType;
-import SystemParts.Course;
+import Enums.*;
+import SystemParts.*;
 
 public class Manager extends Employee implements Serializable, Comparable<Object>{
 
 	private ManagerType type;
-	private Vector<String> requests = new Vector<>();
-	public Vector<String> getRequests() {
+	private Vector<EmployeeOrder> requests = new Vector<>();
+	public Vector<EmployeeOrder> getRequests() {
 		return requests;
 	}
 
-	public void setRequests(Vector<String> requests) {
+	public void setRequests(Vector<EmployeeOrder> requests) {
 		this.requests = requests;
 	}
 	
@@ -81,12 +80,17 @@ public class Manager extends Employee implements Serializable, Comparable<Object
 //		return (student.getLimitOfCredit() <= 21 && course.getStudentLimit() > 0);
 //	}
 //	
-//	public void addRequest(String request) {
-//        requests.add(request);
-//    }
-//	 public Vector<String> viewRequests() {
-//	        return requests;
-//	}
+	public void addRequest(EmployeeOrder employeeOrder) {
+        if(employeeOrder.isSigned()) {
+			requests.add(employeeOrder);
+			System.out.println("Request(order) from " + employeeOrder.getIdFrom() + " was added to list");
+		} else {
+			System.out.println("Oops.. Looks like request wasn't signed by Dean.");
+		}
+    }
+	 public Vector<EmployeeOrder> viewRequests() {
+		return this.getRequests();
+	}
 
 	@Override
 	public int compareTo(Object o) {
