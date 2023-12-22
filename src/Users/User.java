@@ -76,5 +76,9 @@ public abstract class User {
 	        //TODO
 	        return "";
 	} 
+
+	public String toString(){
+		return "My name is Bibo"
+	}
 	
 }
