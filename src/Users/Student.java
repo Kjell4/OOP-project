@@ -1,6 +1,8 @@
 package Users;
 
 import java.io.Serializable;
+
+
 import java.util.HashMap;
 import java.util.Vector;
 
@@ -15,17 +17,17 @@ import SystemParts.Organization;
 
 public class Student extends User implements Serializable, Comparable<Object> {
 	private int limitOfCredit=21;
-    private Degree degree;
-    private int year;
-    private String major;
-    private Faculty faculty;
-    private Vector <Course> course = new Vector<Course>();
-    private double gpa;
-    private String transcript;
-    private Organization organization;
-    private int credits;
-    private HashMap<Course, Mark> marks = new HashMap<Course, Mark>();
-    
+	private Degree degree;
+	private int year;
+	private String major;
+	private Faculty faculty;
+	private Vector <Course> course = new Vector<Course>();
+	private double gpa;
+	private String transcript;
+	private Organization organization;
+	private int credits;
+	private HashMap<Course, Mark> marks = new HashMap<Course, Mark>();
+
 	public Student(String login, String password, String name, String surname, String id, int limitOfCredit, Degree degree, int year, String major, Faculty faculty, double gpa, String transcript, Organization organization, int credits) {
 		super(login, password, name, surname, id);
 		this.limitOfCredit = limitOfCredit;
@@ -40,8 +42,6 @@ public class Student extends User implements Serializable, Comparable<Object> {
 		this.credits = credits;
 		this.marks = marks;
 	}
-
-
 	public Order makeRequest(String title, String content, OrderType orderType) {
 		return new Order(title, content, this.getId(), orderType);
 	}
@@ -112,55 +112,72 @@ public class Student extends User implements Serializable, Comparable<Object> {
 		this.marks = marks;
 	}
 
-	@Override
-	public int compareTo(Object o) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-	
+
 	Data database = new Data();
 
-	public Vector viewCourses() {
+	public Vector<Student> viewCourses() {
 		return database.students;
 	}
-	
-	
-//	public Degree getTypeDegree() {
-//        //TODO
-//        return Degree.BACHELOR;
-//    }
-//	
-//	 public boolean registerToCourse() {
-//	        //TODO
-//	        return false;
-//	    }
-//	 
-//	 public Vector<Mark> viewMarks() {
-//	        //TODO
-//	        return null;
-//	    }
-//	 
-//	 public Vector<Course> viewCourses() {
-//	        //TODO
-//	        return null;
-//	    }
-//	 
-//	 public int compareTo(Object o) {
-//				Student s = (Student) o;
-//				if (gpa < s.gpa) return -1;
-//				else return 1;
-//			return 0;
-//		}
-//	 
-//	 public void rateTeachers(Teacher teacher, double rating) {
-//			teacher.setRating(rating);
-//		}
-//	 
-//	 public boolean dropCourse(Course course) {
-//			if(this.getMarks().get(course).addGrade()<50) {
-//				marks.remove(course);
-//				return true;
-//			}
-//			return false;
-//		}
+
+
+	public Degree getTypeDegree() {
+		//TODO
+		return Degree.BACHELOR;
+	}
+
+
+	public void registerToCourse(Course course) {
+		if (course == null) {
+			System.out.println("Invalid course. Cannot register.");
+			return;
+		}
+
+		if (credits + course.getCredit() > limitOfCredit) {
+			System.out.println("Credit limit exceeded. Cannot register for the course: " + course.getName());
+			return;
+		}
+
+		if (!course.getStudents().contains(this)) {
+			course.addStudent(this);
+			credits += course.getCredit();
+			marks.put(course, new Mark());
+
+			System.out.println("Successfully registered for the course: " + course.getName());
+		} else {
+			System.out.println("Already registered for the course: " + course.getName());
+		}
+	}
+
+
+	public Vector<Mark> viewMarks() {
+
+		Vector<Mark> studentMarks = new Vector<>();
+
+		for (Course course : marks.keySet()) {
+			Mark mark = marks.get(course);
+			studentMarks.add(mark);
+			System.out.println("Course: " + course.getName() + ", Mark: " + mark.addGrade());
+		}
+
+		return studentMarks;
+	}
+
+
+	public int compareTo(Object o) {
+		Student s = (Student) o;
+		if (gpa < s.gpa) return -1;
+		else return 1;
+	}
+
+	public void rateTeachers(Teacher teacher, double rating) {
+		teacher.setRating(rating);
+	}
+
+	public boolean dropCourse(Course course) {
+		if(this.getMarks().get(course).addGrade()<50) {
+			marks.remove(course);
+			return true;
+		}
+		return false;
+	}
 }

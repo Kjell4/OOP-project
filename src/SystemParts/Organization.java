@@ -2,7 +2,6 @@ package SystemParts;
 
 import java.util.Vector;
 
-import Users.Student;
 public class Organization {
 	private String name;
 	private String head;

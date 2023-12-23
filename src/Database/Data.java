@@ -19,7 +19,7 @@ public class Data {
 	public Vector<User> users = new Vector<User>();
 	public Vector<Course> courses = new Vector<Course>();
 	public Vector<Mark> marks = new Vector<Mark>();
-	public Vector<Student> students = new Vector<Student>();
+	public Vector<Student> students = new Vector<Users.Student>();
 	public Vector<Teacher> teachers = new Vector<Teacher>();
 	public Vector<Order> orders = new Vector<Order>();
 	public Vector<ResearchPaper> papers = new Vector<>();
