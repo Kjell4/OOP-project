@@ -41,9 +41,7 @@ public class Student extends User implements Serializable, Comparable<Object> {
 		this.marks = marks;
 	}
 
-	public void BibolatTest() {
-		System.out.println("Hello World!");
-	}
+
 	public Order makeRequest(String title, String content, OrderType orderType) {
 		return new Order(title, content, this.getId(), orderType);
 	}
