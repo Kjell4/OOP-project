@@ -52,17 +52,17 @@ public class Manager extends Employee implements Serializable, Comparable<Object
 		return database.courses;
 	}
 
-	public boolean addNews(News news) {
-		if (database.news.contains(news)) return false;
-		database.news.add(news);
-		return true;
-	}
-
-	public boolean removeNews(News news) {
-		if (!database.news.contains(news)) return false;
-		database.news.remove(news);
-		return true;
-	}
+//	public boolean addNews(News news) {
+//		if (database.news.contains(news)) return false;
+//		database.news.add(news);
+//		return true;
+//	}
+//
+//	public boolean removeNews(News news) {
+//		if (!database.news.contains(news)) return false;
+//		database.news.remove(news);
+//		return true;
+//	}
 
 	public Vector<Teacher> viewTeacherInformation() {
 		return database.teachers;

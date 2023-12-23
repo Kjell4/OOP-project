@@ -60,32 +60,33 @@ public class Test {
 
 
 
-//	Mark firstAttestationMark = new Mark();
-//    firstAttestationMark.setType(AttestationType.FIRST);
-//    firstAttestationMark.defineMark(25);
-//    System.out.println("First Attestation Mark: " + firstAttestationMark);
-//
-//
-//
-//    Mark secondAttestationMark = new Mark();
-//    secondAttestationMark.setType(AttestationType.SECOND);
-//    secondAttestationMark.defineMark(32);
-//    System.out.println("Second Attestation Mark: " + secondAttestationMark);
-//
-//    Mark finalExamMark = new Mark();
-//    finalExamMark.setType(AttestationType.EXAM);
-//    finalExamMark.defineMark(30);
-//    System.out.println("Final Exam Mark: " + finalExamMark);
-//
-//
-//    double totalGrade = firstAttestationMark.addGrade() + secondAttestationMark.addGrade() + finalExamMark.addGrade();
-//    System.out.println("Total Grade: " + totalGrade);
-//
-//    Mark overallMark = new Mark();
-//    overallMark.setGpa(0.0);
-//    overallMark.defineMark(totalGrade);
-//    overallMark.transformMark();
-//    System.out.println("Overall GPA: " + overallMark.getGpa());
+	Mark firstAttestationMark = new Mark();
+    firstAttestationMark.setType(AttestationType.FIRST);
+    firstAttestationMark.defineMark(25);
+    System.out.println("First Attestation Mark: " + firstAttestationMark);
+
+
+
+    Mark secondAttestationMark = new Mark();
+    secondAttestationMark.setType(AttestationType.SECOND);
+    secondAttestationMark.defineMark(32);
+    System.out.println("Second Attestation Mark: " + secondAttestationMark);
+
+    Mark finalExamMark = new Mark();
+    finalExamMark.setType(AttestationType.EXAM);
+    finalExamMark.defineMark(30);
+    System.out.println("Final Exam Mark: " + finalExamMark);
+
+
+    double totalGrade = firstAttestationMark.addGrade() + secondAttestationMark.addGrade() + finalExamMark.addGrade();
+    System.out.println("Total Grade: " + totalGrade);
+
+    Mark overallMark = new Mark();
+    overallMark.setGpa(0.0);
+    overallMark.defineMark(totalGrade);
+    overallMark.transformMark();
+	System.out.println("Overall GPA: " + overallMark.getGpa());
+	System.out.println("Letter of GPA" + " " + overallMark.getIteralMark());
 
 		Student student = new Student("student1", "password", "John", "Doe", "S123", 19, Degree.BACHELOR, 2, "Computer Science", Faculty.SITE, 3.5, "Good standing", null, 11);
 		Teacher teacher = new Teacher("teacher1", "password", "Alice", "Smith", "T456", EmployeePost.TEACHER, 50000, new Date(11, 11, 11), "Computer Science", TeacherRank.LECTURER, 4.5);
