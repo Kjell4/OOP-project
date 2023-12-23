@@ -40,7 +40,9 @@ public class Student extends User implements Serializable, Comparable<Object> {
 		this.credits = credits;
 		this.marks = marks;
 	}
-
+	public String toString(){
+		return "Message from Bibolat";
+	}
 
 	public Order makeRequest(String title, String content, OrderType orderType) {
 		return new Order(title, content, this.getId(), orderType);
