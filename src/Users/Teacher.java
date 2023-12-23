@@ -1,8 +1,8 @@
 package Users;
 
 import java.io.Serializable;
+import SystemParts.Mark;
 import java.util.Date;
-import java.util.Objects;
 import java.util.Vector;
 import Database.Data;
 import Enums.AttestationType;
@@ -16,16 +16,16 @@ public class Teacher extends Employee implements Serializable, Comparable<Object
 	private TeacherRank rank;
 	private Vector<Lesson> lessons;
 	private double rating;
-	
-	
+
+
 	public Teacher(String login, String password, String name, String surname, String id, EmployeePost post, int salary, Date hireDate, String departmentName, TeacherRank rank, double rating) {
 		super(login, password, name, surname, id, post, salary, hireDate);
 		this.departmentName = departmentName;
 		this.rank = rank;
 		this.rating = rating;
 	}
-	
-	
+
+
 	public double getRating() {
 		return rating;
 	}
@@ -53,10 +53,10 @@ public class Teacher extends Employee implements Serializable, Comparable<Object
 	}
 	public void setLessons(Vector<Lesson> lessons) {
 		this.lessons = lessons;
-	} 
-	
+	}
+
 	Data database = new Data();
-	
+
 	public String viewCourses() {
 		String courses = "";
 		for (Course c : database.courses) {
@@ -64,7 +64,7 @@ public class Teacher extends Employee implements Serializable, Comparable<Object
 		}
 		return courses;
 	}
-	
+
 	public String viewStudents() {
 		String stud = "";
 		for (Student s : database.students) {
@@ -76,17 +76,30 @@ public class Teacher extends Employee implements Serializable, Comparable<Object
 		}
 		return stud;
 	}
-	
-	
 
-	
-	
-//	public void putMark(Course course, Student student, double point, AttestationType type) {
+
+
+
+
+	public void putMark(Course course, Student student, double point, AttestationType type) {
+		Mark mark = student.getMarks().get(course);
+		if (mark == null) {
+			mark = new Mark();
+			student.getMarks().put(course, mark);
+		}
+
+		if (type == AttestationType.FIRST) {
+			mark.setFirstAttestation(point);
+		} else if (type == AttestationType.SECOND) {
+			mark.setSecondAttestation(point);
+		} else {
+			mark.setExamMark(point);
+		}
 //		if (type == AttestationType.FIRST) {
-//			student.setMarks(course, p);
+//			student.setMarks(course, mark);
 //			student.getMarks().put(course, mark);
 //		}
-//		else if (mark.getPeriod() == AttestationType.SECOND){
+//		else if (type == AttestationType.SECOND){
 //			student.getMarks().get(course).setSecondAttestation(student.getMarks().get(course).getSecondAttestation() + point);
 //			student.getMarks().put(course, student.getMarks().get(course));
 //		}
@@ -94,7 +107,7 @@ public class Teacher extends Employee implements Serializable, Comparable<Object
 //			student.getMarks().get(course).setExamMark(student.getMarks().get(course).getExamMark() + point);
 //			student.getMarks().put(course, student.getMarks().get(course));
 //		}
-//	}
+	}
 
 
 	@Override
@@ -102,6 +115,6 @@ public class Teacher extends Employee implements Serializable, Comparable<Object
 		// TODO Auto-generated method stub
 		return 0;
 	}
-	
-	
+
+
 }
