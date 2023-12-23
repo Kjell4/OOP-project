@@ -2,6 +2,8 @@ package SystemParts;
 
 import java.util.Vector;
 
+
+import Users.Student;
 public class Organization {
 	private String name;
 	private String head;
@@ -24,4 +26,29 @@ public class Organization {
 		Organization.member = member;
 	}
 	private static Vector<Student> member = new Vector<Student>();
+
+	public void addMember(Student student) {
+		if (!member.contains(student)) {
+			member.add(student);
+		}
+	}
+
+	public void removeMember(Student student) {
+		member.remove(student);
+	}
+	public boolean hasMember(Student student) {
+		return member.contains(student);
+	}
+
+	public int getMemberCount() {
+		return member.size();
+	}
+
+	public Vector<String> getMemberNames() {
+		Vector<String> memberNames = new Vector<>();
+		for (Student student : member) {
+			memberNames.add(student.getName() + " " + student.getSurname());
+		}
+		return memberNames;
+	}
 }
