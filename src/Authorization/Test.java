@@ -2,15 +2,19 @@ package Authorization;
 import java.sql.Date;
 
 import java.util.Map.Entry;
+import java.util.Vector;
 
-import SystemParts.Mark;
 import Users.*;
 import Enums.*;
-import SystemParts.Course;
+import SystemParts.*;
+
 
 public class Test {
 
 	public static void main(String[] args) {
+
+		//Checking for request method
+		//
 		Admin adminEren = new Admin("eren", "745f0", "Eren", "Yeager", "22B040578", EmployeePost.ADMIN, 145000, Date.valueOf("2023-02-21"));
 		Manager managerAzamat = new Manager("azzza", "aboba", "Azamat", "Alpysbay", "22B010445", EmployeePost.MANAGER, 451000, Date.valueOf("2022-12-12"), ManagerType.DEPARTMENT);
 		managerAzamat.addRequest(adminEren.makeRequest("Complain", "Wifi is not working", OrderType.COMPLAINT));
@@ -19,6 +23,24 @@ public class Test {
 		dean.signOrder(adminEren.getEmployeeOrder());
 		managerAzamat.addRequest(adminEren.getEmployeeOrder());
 		System.out.println(managerAzamat.viewRequests());
+
+		//Checking for news
+		//
+		Vector<News> newsVector = new Vector<>();
+		Vector<Comment> commentVector = new Vector<>();
+		Vector<Comment> commentVector2 = new Vector<>();
+		NewsSection newsSection = new NewsSection(newsVector);
+		News newsLessonPostponed = new News("LESSON POSTPONED, Hangi", "Because of my business trip, tomorrow lessons will " +
+				"be postponed to unknown date", Date.valueOf("2023-12-25"), NewsType.PPONE, commentVector);
+		News newsSomeRes = new News("RESEAAAARCH!", "Some research happened, go check", Date.valueOf("2023-12-23"), NewsType.RES, commentVector2);
+		newsSection.addNews(newsLessonPostponed);
+		newsSection.addNews(newsSomeRes);
+		newsSection.writeComment(newsSomeRes, "WOW, what a news about some research!", "Azamat", Date.valueOf("2023-12-24"));
+		newsSection.writeComment(newsLessonPostponed, "Ok", "Anonim", Date.valueOf("2023-12-25"));
+		newsSection.writeComment(newsSomeRes, "Cool research", "Tramp", Date.valueOf("2023-12-25"));
+		newsSection.viewNews();
+
+
 
 		Admin admin = new Admin("admin", "777", "Bibolat", "Kaldybai", "22B000000", EmployeePost.ADMIN, 124000, Date.valueOf("2023-03-22"));
 
