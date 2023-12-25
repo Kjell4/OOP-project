@@ -41,20 +41,19 @@ public class Test {
 		newsSection.viewNews();
 
 
-
 		Admin admin = new Admin("admin", "777", "Bibolat", "Kaldybai", "22B000000", EmployeePost.ADMIN, 124000, Date.valueOf("2023-03-22"));
 
 		User u = new Researcher("ilias", "1234", "Ilias", "Bekturgan", "22B030327");
 
 		User u2 = new Manager("dias", "1111", "Dias", "Ermek", "22B6564684", EmployeePost.MANAGER, 114000, Date.valueOf("2023-02-01"), ManagerType.OR);
 
-		admin.addUser(u , "777");
-		admin.addUser(u2 , "777");
+		admin.addUser(u, "777");
+		admin.addUser(u2, "777");
 
 		Session session = new Session();
-		session.login(admin.showDatabase() , "ilias", "1234");
+		session.login(admin.showDatabase(), "ilias", "1234");
 
-		Researcher currentUser = (Researcher)session.getCurrentUser();
+		Researcher currentUser = (Researcher) session.getCurrentUser();
 		System.out.println(currentUser);
 
 		currentUser.makeResearchPaper("Clean Code", Date.valueOf("2023-03-03"), 50, "AlmatyKitap", "pakita");
@@ -79,36 +78,32 @@ public class Test {
 ////		System.out.println(currentUser);
 
 
+		Mark firstAttestationMark = new Mark();
+		firstAttestationMark.setType(AttestationType.FIRST);
+		firstAttestationMark.defineMark(25);
+		System.out.println("First Attestation Mark: " + firstAttestationMark);
 
 
+		Mark secondAttestationMark = new Mark();
+		secondAttestationMark.setType(AttestationType.SECOND);
+		secondAttestationMark.defineMark(32);
+		System.out.println("Second Attestation Mark: " + secondAttestationMark);
 
-	Mark firstAttestationMark = new Mark();
-    firstAttestationMark.setType(AttestationType.FIRST);
-    firstAttestationMark.defineMark(25);
-    System.out.println("First Attestation Mark: " + firstAttestationMark);
-
-
-
-    Mark secondAttestationMark = new Mark();
-    secondAttestationMark.setType(AttestationType.SECOND);
-    secondAttestationMark.defineMark(32);
-    System.out.println("Second Attestation Mark: " + secondAttestationMark);
-
-    Mark finalExamMark = new Mark();
-    finalExamMark.setType(AttestationType.EXAM);
-    finalExamMark.defineMark(30);
-    System.out.println("Final Exam Mark: " + finalExamMark);
+		Mark finalExamMark = new Mark();
+		finalExamMark.setType(AttestationType.EXAM);
+		finalExamMark.defineMark(30);
+		System.out.println("Final Exam Mark: " + finalExamMark);
 
 
-    double totalGrade = firstAttestationMark.addGrade() + secondAttestationMark.addGrade() + finalExamMark.addGrade();
-    System.out.println("Total Grade: " + totalGrade);
+		double totalGrade = firstAttestationMark.addGrade() + secondAttestationMark.addGrade() + finalExamMark.addGrade();
+		System.out.println("Total Grade: " + totalGrade);
 
-    Mark overallMark = new Mark();
-    overallMark.setGpa(0.0);
-    overallMark.defineMark(totalGrade);
-    overallMark.transformMark();
-	System.out.println("Overall GPA: " + overallMark.getGpa());
-	System.out.println("Letter of GPA" + " " + overallMark.getIteralMark());
+		Mark overallMark = new Mark();
+		overallMark.setGpa(0.0);
+		overallMark.defineMark(totalGrade);
+		overallMark.transformMark();
+		System.out.println("Overall GPA: " + overallMark.getGpa());
+		System.out.println("Letter of GPA" + " " + overallMark.getIteralMark());
 
 		Student student = new Student("student1", "password", "John", "Doe", "S123", 19, Degree.BACHELOR, 2, "Computer Science", Faculty.SITE, 3.5, "Good standing", null, 11);
 		Teacher teacher = new Teacher("teacher1", "password", "Alice", "Smith", "T456", EmployeePost.TEACHER, 50000, new Date(11, 11, 11), "Computer Science", TeacherRank.LECTURER, 4.5);

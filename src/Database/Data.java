@@ -10,6 +10,7 @@ import SystemParts.Order;
 import Users.Student;
 import Users.Teacher;
 import Users.User;
+import  SystemParts.News;
 
 public class Data {
 	
@@ -24,7 +25,7 @@ public class Data {
 	public Vector<Order> orders = new Vector<Order>();
 	public Vector<ResearchPaper> papers = new Vector<>();
 	public Vector<ResearchProject> projects = new Vector<>();
-	
+	public Vector<News> news = new Vector<>();
 	public Vector<User> getData() {
 		return users;
 	}

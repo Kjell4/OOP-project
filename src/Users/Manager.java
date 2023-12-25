@@ -6,6 +6,8 @@ import java.util.Vector;
 import Database.Data;
 import Enums.*;
 import SystemParts.*;
+import SystemParts.News;
+import SystemParts.NewsSection;
 
 public class Manager extends Employee implements Serializable, Comparable<Object>{
 
@@ -32,6 +34,7 @@ public class Manager extends Employee implements Serializable, Comparable<Object
 
 	Data database = new Data();
 
+
 	public void addCourses(Course course) {
 		if (database.courses.contains(course)) {
 			System.out.println("Course is already exist!");
@@ -52,17 +55,17 @@ public class Manager extends Employee implements Serializable, Comparable<Object
 		return database.courses;
 	}
 
-//	public boolean addNews(News news) {
-//		if (database.news.contains(news)) return false;
-//		database.news.add(news);
-//		return true;
-//	}
-//
-//	public boolean removeNews(News news) {
-//		if (!database.news.contains(news)) return false;
-//		database.news.remove(news);
-//		return true;
-//	}
+	public boolean addNews(News news) {
+		if (database.news.contains(news)) return false;
+		database.news.add(news);
+		return true;
+	}
+
+	public boolean removeNews(News news) {
+		if (!database.news.contains(news)) return false;
+		database.news.remove(news);
+		return true;
+	}
 
 	public Vector<Teacher> viewTeacherInformation() {
 		return database.teachers;
