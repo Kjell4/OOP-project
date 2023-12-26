@@ -14,12 +14,12 @@ public class News {
 
     }
 
-    public News(String title, String content, Date date, NewsType newsType, Vector<Comment> comment) {
+    public News(String title, String content, Date date, NewsType newsType) {
         this.title = title;
         this.content = content;
         this.date = date;
         this.newsType = newsType;
-        this.comment = comment;
+        this.comment = new Vector<>();
     }
     public void addComment(Comment commentary) {
         comment.add(commentary);
