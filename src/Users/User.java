@@ -1,17 +1,12 @@
 package Users;
 
-<<<<<<< HEAD
 import java.io.Serializable;
-
-public abstract class User implements Serializable{
-=======
 import SystemParts.Message;
-
 import java.io.Serializable;
 import java.util.Vector;
 
 public abstract class User implements Serializable {
->>>>>>> db7c0471e90327e2f467d548a3ac23ecf85513c4
+
 	private String login;  
 	private String password;
 	private String name;   
