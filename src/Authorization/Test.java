@@ -9,6 +9,7 @@ import Enums.*;
 import SystemParts.*;
 
 
+
 public class Test {
 
 	public static void main(String[] args) {
@@ -105,10 +106,20 @@ public class Test {
 		System.out.println("Overall GPA: " + overallMark.getGpa());
 		System.out.println("Letter of GPA" + " " + overallMark.getIteralMark());
 
-		Student student = new Student("student1", "password", "John", "Doe", "S123", 19, Degree.BACHELOR, 2, "Computer Science", Faculty.SITE, 3.5, "Good standing", null, 11);
+
+		Admin admin2 = new Admin("admin", "777", "Bibolat", "Kaldybay", "22B030480", EmployeePost.ADMIN, 777007, Date.valueOf("2023-03-22"));
+
 		Teacher teacher = new Teacher("teacher1", "password", "Alice", "Smith", "T456", EmployeePost.TEACHER, 50000, new Date(11, 11, 11), "Computer Science", TeacherRank.LECTURER, 4.5);
 
+		admin2.addUser(teacher, "777");
+
+		Session session2 = new Session();
+
+		session2.login(admin2.showDatabase(), "teacher1", "password");
+
 		Course course = new Course("Programming 101", "CS101", 1, Faculty.SITE, CourseType.BASIC);
+
+		Student student = new Student("student1", "password", "John", "Doe", "S123", 19, Degree.BACHELOR, 2, "Computer Science", Faculty.SITE, 3.5, "Good standing", null, 11);
 		course.teaches(teacher);
 		student.registerToCourse(course);
 		double point = 25;
@@ -121,5 +132,26 @@ public class Test {
 			System.out.println("Course: " + courseEntry.getName() + ", Mark: " + markEntry);
 		}
 
+		session2.logout();
 	}
 }
+
+
+
+//		Student student = new Student("student1", "password", "John", "Doe", "S123", 19, Degree.BACHELOR, 2, "Computer Science", Faculty.SITE, 3.5, "Good standing", null, 11);
+//
+//		Course course = new Course("Programming 101", "CS101", 1, Faculty.SITE, CourseType.BASIC);
+//		course.teaches(teacher);
+//		student.registerToCourse(course);
+//		double point = 25;
+//		AttestationType type = AttestationType.FIRST;
+//		teacher.putMark(course, student, point, type);
+//		System.out.println("Student's Marks:");
+//		for (Entry<Course, Mark> entry : student.getMarks().entrySet()) {
+//			Course courseEntry = entry.getKey();
+//			Mark markEntry = entry.getValue();
+//			System.out.println("Course: " + courseEntry.getName() + ", Mark: " + markEntry);
+//		}
+//
+//	}
+//}
