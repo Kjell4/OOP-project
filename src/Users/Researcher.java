@@ -7,6 +7,7 @@ import Research.ResearchProject;
 import Comparators.ArticleLengthComparator;
 import Comparators.PublishedDateComparator;
 import Database.Data;
+import Exceptions.ImposterException;
 import Exceptions.NoSuchFormatException;
 
 public class Researcher extends User{
@@ -63,6 +64,16 @@ public class Researcher extends User{
 		catch(NoSuchFormatException e){
 			System.out.println(e.getMessage());
 		}
+	}
+	
+	public void joinParticipant(User u) throws ImposterException {
+		ImposterException.checkParticipant(u);
+		Researcher r = (Researcher) u;
+		database.participants.add(r);
+	}
+	
+	public void viewParticipantsOfProject() {
+		System.out.println(database.participants);
 	}
 	
 }
