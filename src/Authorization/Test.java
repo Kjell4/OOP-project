@@ -1,20 +1,23 @@
 package Authorization;
+import java.io.Serializable;
 import java.sql.Date;
 
 import java.util.Map.Entry;
 import java.util.Vector;
 
+import Database.Data;
 import Users.*;
 import Enums.*;
 import Exceptions.ImposterException;
 import SystemParts.*;
+import Users.User;
 
 
 
-public class Test {
+public class Test implements Serializable {
 
 	public static void main(String[] args) throws ImposterException {
-		
+
 
 		//Checking for request method
 		//
@@ -40,42 +43,76 @@ public class Test {
 //		newsSection.writeComment(newsSomeRes, "Cool research", "Tramp", Date.valueOf("2023-12-25"));
 //		newsSection.viewNews();
 
+//
+//		Admin admin = new Admin("admin", "777", "Bibolat", "Kaldybai", "22B000000", EmployeePost.ADMIN, 124000, Date.valueOf("2023-03-22"));
+//
+//		User u = new Researcher("ilias", "1234", "Ilias", "Bekturgan", "22B030327");
+//
+//		User u3 = new Researcher("Elnur", "1234", "Elnur", "Abdulla", "22B030000");
 
-		Admin admin = new Admin("admin", "777", "Bibolat", "Kaldybai", "22B000000", EmployeePost.ADMIN, 124000, Date.valueOf("2023-03-22"));
+//		User user = new Student("student1", "password", "John", "Doe", "S123", 19, Degree.BACHELOR, 2, "Computer Science", Faculty.SITE, 3.5, "Good standing", null, 11);
+//
+//		Data data = new Data(user);
+//
+//		try {
+//
+//			data.serialize();
+//
+//			User deserializedUser = data.deserialize();
+//
+//			System.out.println(deserializedUser);
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
+//	}
+//}
 
-		User u = new Researcher("ilias", "1234", "Ilias", "Bekturgan", "22B030327");
-		
-		User u3 = new Researcher("Elnur", "1234", "Elnur", "Abdulla", "22B030000");
+		Student student = new Student("student1", "password", "John", "Doe", "S123", 19, Degree.BACHELOR, 2, "Computer Science", Faculty.SITE, 3.5, "Good standing", null, 11);
 
-		admin.addUser(u, "777");
-		admin.addUser(u3, "777");
+		Data data = new Data();
+		data.students.add(student);
 
-		Session session = new Session();
-		session.login(admin.showDatabase(), "ilias", "1234");
 
-		Researcher currentUser = (Researcher) session.getCurrentUser();
-		System.out.println(currentUser);
+		data.serializeStudent();
 
-		currentUser.makeResearchPaper("Clean Code", Date.valueOf("2023-03-03"), 50, "AlmatyKitap", "pakita");
-		currentUser.makeResearchPaper("Retake", Date.valueOf("2023-01-03"), 40, "Atamura", "pakita");
-//		currentUser.printPapersByPublishedDate();
-		currentUser.printPapersByArticleLength();
-		currentUser.getCitation(0, "Bibtex");
-		currentUser.joinParticipant(u3);
-		currentUser.viewParticipantsOfProject();
+		try {
+			Vector<Student> deserializedStudents = data.deserializeStudent();
+			System.out.println(deserializedStudents);
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+	}
+}
 
-		session.logout();
-		currentUser = (Researcher) session.getCurrentUser();
-		System.out.println(currentUser);
-		
+//		admin.addUser(u, "777");
+//		admin.addUser(u3, "777");
+//
+//		Session session = new Session();
+//		session.login(admin.showDatabase(), "ilias", "1234");
+//
+//		Researcher currentUser = (Researcher) session.getCurrentUser();
+//		System.out.println(currentUser);
+//
+//		currentUser.makeResearchPaper("Clean Code", Date.valueOf("2023-03-03"), 50, "AlmatyKitap", "pakita");
+//		currentUser.makeResearchPaper("Retake", Date.valueOf("2023-01-03"), 40, "Atamura", "pakita");
+////		currentUser.printPapersByPublishedDate();
+//		currentUser.printPapersByArticleLength();
+//		currentUser.getCitation(0, "Bibtex");
+//		currentUser.joinParticipant(u3);
+//		currentUser.viewParticipantsOfProject();
+//
+//		session.logout();
+//		currentUser = (Researcher) session.getCurrentUser();
+//		System.out.println(currentUser);
+
 //		Admin admin = new Admin("admin", "777", "Bibolat", "Kaldybai", "22B000000", EmployeePost.ADMIN, 124000, Date.valueOf("2023-03-22"));
 //		User u2 = new Manager("dias", "1111", "Dias", "Ermek", "22B6564684", EmployeePost.MANAGER, 114000, Date.valueOf("2023-02-01"), ManagerType.OR);
 //		admin.addUser(u2, "777");
-//		
+//
 //		Session session = new Session();
 //		session.login(admin.showDatabase() , "dias", "1111");
 //		Manager currentUser = (Manager)session.getCurrentUser();
-//		
+//
 //		currentUser.addCourses(new Course("OOP", "CSCI2106", 5, Faculty.SITE, CourseType.BASIC));
 //		System.out.println(currentUser.getCourses());
 //
@@ -138,8 +175,8 @@ public class Test {
 //		}
 //
 //		session2.logout();
-	}
-}
+
+
 
 
 
@@ -160,3 +197,5 @@ public class Test {
 //
 //	}
 //}
+
+
