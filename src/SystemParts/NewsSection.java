@@ -1,6 +1,9 @@
 package SystemParts;
 
+import Comparators.OrderComparator;
 import Enums.NewsType;
+
+import java.util.Comparator;
 import java.util.Vector;
 import java.util.Date;
 public class NewsSection {
@@ -8,10 +11,7 @@ public class NewsSection {
     private Vector<News> newsFeed;
 
     public NewsSection() {
-
-    }
-    public NewsSection(Vector<News> newsFeed) {
-        this.newsFeed = newsFeed;
+        this.newsFeed = new Vector<>();
     }
 
     public void addNews(News news) {
@@ -20,6 +20,7 @@ public class NewsSection {
     }
 
     public void viewNews() {
+        newsFeed.sort(new OrderComparator());
         for (News news : newsFeed) {
             System.out.println(news);
             for (int j = 0; j < news.comment.size(); ++j) {

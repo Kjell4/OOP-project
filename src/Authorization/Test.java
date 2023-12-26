@@ -27,13 +27,10 @@ public class Test {
 
 		//Checking for news
 		//
-		Vector<News> newsVector = new Vector<>();
-		Vector<Comment> commentVector = new Vector<>();
-		Vector<Comment> commentVector2 = new Vector<>();
-		NewsSection newsSection = new NewsSection(newsVector);
+		NewsSection newsSection = new NewsSection();
 		News newsLessonPostponed = new News("LESSON POSTPONED, Hangi", "Because of my business trip, tomorrow lessons will " +
-				"be postponed to unknown date", Date.valueOf("2023-12-25"), NewsType.PPONE, commentVector);
-		News newsSomeRes = new News("RESEAAAARCH!", "Some research happened, go check", Date.valueOf("2023-12-23"), NewsType.RES, commentVector2);
+				"be postponed to unknown date", Date.valueOf("2023-12-25"), NewsType.PPONE);
+		News newsSomeRes = new News("RESEAAAARCH!", "Some research happened, go check", Date.valueOf("2023-12-23"), NewsType.RES);
 		newsSection.addNews(newsLessonPostponed);
 		newsSection.addNews(newsSomeRes);
 		newsSection.writeComment(newsSomeRes, "WOW, what a news about some research!", "Azamat", Date.valueOf("2023-12-24"));
