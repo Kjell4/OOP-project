@@ -100,7 +100,6 @@ public class Test {
 		System.out.println("Total Grade: " + totalGrade);
 
 		Mark overallMark = new Mark();
-		overallMark.setGpa(0.0);
 		overallMark.defineMark(totalGrade);
 		overallMark.transformMark();
 		System.out.println("Overall GPA: " + overallMark.getGpa());
