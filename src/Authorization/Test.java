@@ -21,27 +21,32 @@ public class Test implements Serializable {
 
 		//Checking for request method
 		//
-//		Admin adminEren = new Admin("eren", "745f0", "Eren", "Yeager", "22B040578", EmployeePost.ADMIN, 145000, Date.valueOf("2023-02-21"));
-//		Manager managerAzamat = new Manager("azzza", "aboba", "Azamat", "Alpysbay", "22B010445", EmployeePost.MANAGER, 451000, Date.valueOf("2022-12-12"), ManagerType.DEPARTMENT);
-//		managerAzamat.addRequest(adminEren.makeRequest("Complain", "Wifi is not working", OrderType.COMPLAINT));
-//		System.out.println(managerAzamat.viewRequests());
-//		Dean dean = new Dean("Obama", "Barack", "DS78450A", "passworddd");
-//		dean.signOrder(adminEren.getEmployeeOrder());
-//		managerAzamat.addRequest(adminEren.getEmployeeOrder());
-//		System.out.println(managerAzamat.viewRequests());
-//
+		Admin adminEren = new Admin("eren", "745f0", "Eren", "Yeager", "22B040578", EmployeePost.ADMIN, 145000, Date.valueOf("2023-02-21"));
+		Manager managerAzamat = new Manager("azzza", "aboba", "Azamat", "Alpysbay", "22B010445", EmployeePost.MANAGER, 451000, Date.valueOf("2022-12-12"), ManagerType.DEPARTMENT);
+		managerAzamat.addRequest(adminEren.makeRequest("Complain", "Wifi is not working", OrderType.COMPLAINT));
+		System.out.println(managerAzamat.viewRequests());
+		Dean dean = new Dean("Obama", "Barack", "DS78450A", "passworddd");
+		dean.signOrder(adminEren.getEmployeeOrder());
+		managerAzamat.addRequest(adminEren.getEmployeeOrder());
+		System.out.println(managerAzamat.viewRequests());
+
 //		//Checking for news
 //		//
-//		NewsSection newsSection = new NewsSection();
-//		News newsLessonPostponed = new News("LESSON POSTPONED, Hangi", "Because of my business trip, tomorrow lessons will " +
-//				"be postponed to unknown date", Date.valueOf("2023-12-25"), NewsType.PPONE);
-//		News newsSomeRes = new News("RESEAAAARCH!", "Some research happened, go check", Date.valueOf("2023-12-23"), NewsType.RES);
-//		newsSection.addNews(newsLessonPostponed);
-//		newsSection.addNews(newsSomeRes);
-//		newsSection.writeComment(newsSomeRes, "WOW, what a news about some research!", "Azamat", Date.valueOf("2023-12-24"));
-//		newsSection.writeComment(newsLessonPostponed, "Ok", "Anonim", Date.valueOf("2023-12-25"));
-//		newsSection.writeComment(newsSomeRes, "Cool research", "Tramp", Date.valueOf("2023-12-25"));
-//		newsSection.viewNews();
+		NewsSection newsSection = new NewsSection();
+		News newsLessonPostponed = new News("LESSON POSTPONED, Hangi", "Because of my business trip, tomorrow lessons will " +
+				"be postponed to unknown date", Date.valueOf("2023-12-25"), NewsType.PPONE);
+		News newsSomeRes = new News("RESEAAAARCH!", "Some research happened, go check", Date.valueOf("2023-12-23"), NewsType.RES);
+		newsSection.addNews(newsLessonPostponed);
+		newsSection.addNews(newsSomeRes);
+		newsSection.writeComment(newsSomeRes, "WOW, what a news about some research!", "Azamat", Date.valueOf("2023-12-24"));
+		newsSection.writeComment(newsLessonPostponed, "Ok", "Anonim", Date.valueOf("2023-12-25"));
+		newsSection.writeComment(newsSomeRes, "Cool research", "Tramp", Date.valueOf("2023-12-25"));
+		newsSection.viewNews();
+
+		MessageSection messageSection = new MessageSection();
+		messageSection.writeMessage("bro, how are you?", managerAzamat, adminEren, Date.valueOf("2023-12-24"));
+		adminEren.checkMessages();
+
 
 //
 //		Admin admin = new Admin("admin", "777", "Bibolat", "Kaldybai", "22B000000", EmployeePost.ADMIN, 124000, Date.valueOf("2023-03-22"));

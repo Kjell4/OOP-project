@@ -1,6 +1,9 @@
 package Users;
 
+import SystemParts.Message;
+
 import java.io.Serializable;
+import java.util.Vector;
 
 public abstract class User implements Serializable {
 	private String login;  
@@ -8,6 +11,7 @@ public abstract class User implements Serializable {
 	private String name;   
 	private String surname;
 	private String id;
+	public Vector<Message> pm; //private messages
 	    
 	public User(String login, String password, String name, String surname, String id) {
 	    	this.login = login;
@@ -15,6 +19,13 @@ public abstract class User implements Serializable {
 	    	this.name = name;
 	    	this.surname = surname;
 	    	this.id = id;
+			this.pm = new Vector<>();
+	}
+
+	public void checkMessages() {
+		for(Message message : pm) {
+			System.out.println(message);
+		}
 	}
 	    
 	public boolean authenticate(String enteredLogin, String enteredPassword) {
