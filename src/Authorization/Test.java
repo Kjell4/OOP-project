@@ -79,6 +79,7 @@ public class Test {
 ////		System.out.println(currentUser);
 
 
+		System.out.println("System of mark is starting");
 		Mark firstAttestationMark = new Mark();
 		firstAttestationMark.setType(AttestationType.FIRST);
 		firstAttestationMark.defineMark(25);
