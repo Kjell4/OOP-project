@@ -67,7 +67,7 @@ public class Test implements Serializable {
 //	}
 //}
 
-		Student student = new Student("student1", "password", "John", "Doe", "S123", 19, Degree.BACHELOR, 2, "Computer Science", Faculty.SITE, 3.5, "Good standing", null, 11);
+	Student student = new Student("student1", "password", "John", "Doe", "S123", 19, Degree.BACHELOR, 2, "Computer Science", Faculty.SITE, 3.5, "Good standing", null, 11);
 
 		Data data = new Data();
 		data.students.add(student);
@@ -83,7 +83,7 @@ public class Test implements Serializable {
 		}
 	}
 }
-
+// 		serialization
 //		admin.addUser(u, "777");
 //		admin.addUser(u3, "777");
 //
