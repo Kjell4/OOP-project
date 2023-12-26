@@ -76,6 +76,7 @@ public class Test {
 ////		System.out.println(currentUser);
 
 
+		System.out.println("System of mark is starting");
 		Mark firstAttestationMark = new Mark();
 		firstAttestationMark.setType(AttestationType.FIRST);
 		firstAttestationMark.defineMark(25);
@@ -97,7 +98,6 @@ public class Test {
 		System.out.println("Total Grade: " + totalGrade);
 
 		Mark overallMark = new Mark();
-		overallMark.setGpa(0.0);
 		overallMark.defineMark(totalGrade);
 		overallMark.transformMark();
 		System.out.println("Overall GPA: " + overallMark.getGpa());

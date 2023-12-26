@@ -95,18 +95,6 @@ public class Teacher extends Employee implements Serializable, Comparable<Object
 		} else {
 			mark.setExamMark(point);
 		}
-//		if (type == AttestationType.FIRST) {
-//			student.setMarks(course, mark);
-//			student.getMarks().put(course, mark);
-//		}
-//		else if (type == AttestationType.SECOND){
-//			student.getMarks().get(course).setSecondAttestation(student.getMarks().get(course).getSecondAttestation() + point);
-//			student.getMarks().put(course, student.getMarks().get(course));
-//		}
-//		else {
-//			student.getMarks().get(course).setExamMark(student.getMarks().get(course).getExamMark() + point);
-//			student.getMarks().put(course, student.getMarks().get(course));
-//		}
 	}
 
 
