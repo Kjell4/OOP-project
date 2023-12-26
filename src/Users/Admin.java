@@ -9,13 +9,11 @@ public class Admin extends Employee{
 	public Admin(String login, String password, String name, String surname, String id, EmployeePost post, int salary, Date hireDate) {
 		super(login, password, name, surname, id, post, salary, hireDate);
 	}
-	
-	Data database = new Data();
-	
+
 	public void addUser(User u, String adminPassword) {
 	        if (this.authenticate(getLogin(), adminPassword)) {  
-	            if (!database.getData().contains(u)) {
-	                database.getData().add(u);
+	            if (!Data.database.users.contains(u)) {
+	            	Data.database.users.add(u);
 	                System.out.println("User added successfully by admin: " + getLogin());
 	            } 
 	            else {
@@ -29,8 +27,8 @@ public class Admin extends Employee{
 	    
 	public void removeUser(User u, String adminPassword) {
         if (this.authenticate(getLogin(), adminPassword)) {
-            if (database.getData().contains(u)) {
-                database.getData().removeElement(u);
+            if (Data.database.users.contains(u)) {
+            	Data.database.users.removeElement(u);
                 System.out.println("User removed successfully by admin: " + getLogin());
             } 
             else {
@@ -43,7 +41,7 @@ public class Admin extends Employee{
     }
 	 
 	public Data showDatabase() {
-		 return database;
+		 return Data.database;
 	}
 	
 	public String toString() {

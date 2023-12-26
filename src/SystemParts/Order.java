@@ -2,10 +2,11 @@ package SystemParts;
 
 import Enums.OrderType;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.Objects;
 
-public class Order {
+public class Order implements Serializable{
     private String title;
     private String content;
     private String idFrom;

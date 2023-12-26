@@ -55,11 +55,11 @@ public class Teacher extends Employee implements Serializable, Comparable<Object
 		this.lessons = lessons;
 	}
 
-	Data database = new Data();
+//	Data database = new Data();
 
 	public String viewCourses() {
 		String courses = "";
-		for (Course c : database.courses) {
+		for (Course c : Data.database.courses) {
 			if (c.getTeachers().contains(this)) courses += c.getName() + " ";
 		}
 		return courses;
@@ -67,8 +67,8 @@ public class Teacher extends Employee implements Serializable, Comparable<Object
 
 	public String viewStudents() {
 		String stud = "";
-		for (Student s : database.students) {
-			for (Course c : database.courses) {
+		for (Student s : Data.database.students) {
+			for (Course c : Data.database.courses) {
 				if (c.getTeachers().contains(this) && s.viewCourses().contains(c)) {
 					stud += s.toString();
 				}

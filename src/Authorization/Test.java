@@ -4,16 +4,16 @@ import java.sql.Date;
 import java.util.Map.Entry;
 import java.util.Vector;
 
+import Database.Data;
 import Users.*;
 import Enums.*;
-import Exceptions.ImposterException;
 import SystemParts.*;
 
 
 
 public class Test {
 
-	public static void main(String[] args) throws ImposterException {
+	public static void main(String[] args) throws Exception {
 		
 
 		//Checking for request method
@@ -40,33 +40,38 @@ public class Test {
 //		newsSection.writeComment(newsSomeRes, "Cool research", "Tramp", Date.valueOf("2023-12-25"));
 //		newsSection.viewNews();
 
+//		Admin admin = new Admin("admin", "777", "Bibolat", "Kaldybai", "22B000000", EmployeePost.ADMIN, 124000, Date.valueOf("2023-03-22"));
+//		
+//		User u = new Researcher("ilias", "1234", "Ilias", "Bekturgan", "22B030327");
+//		
+//		User u3 = new Researcher("Elnur", "1234", "Elnur", "Abdulla", "22B030000");
+//
+//		admin.addUser(u, "777");
+//		admin.addUser(u3, "777");
+//		Data.database.users.add(new Researcher("login1", "password1", "name1", "surname1", "id1"));
+//		Data.database.users.add(new Researcher("login1", "password1", "name2", "surname2", "id1"));
+//		Data.database.serialize(Data.database);
+//
+//		Data deserializedData = Data.database.deserialize();
+//		System.out.println(deserializedData.deserialize());
 
-		Admin admin = new Admin("admin", "777", "Bibolat", "Kaldybai", "22B000000", EmployeePost.ADMIN, 124000, Date.valueOf("2023-03-22"));
-
-		User u = new Researcher("ilias", "1234", "Ilias", "Bekturgan", "22B030327");
-		
-		User u3 = new Researcher("Elnur", "1234", "Elnur", "Abdulla", "22B030000");
-
-		admin.addUser(u, "777");
-		admin.addUser(u3, "777");
-
-		Session session = new Session();
-		session.login(admin.showDatabase(), "ilias", "1234");
-
-		Researcher currentUser = (Researcher) session.getCurrentUser();
-		System.out.println(currentUser);
-
-		currentUser.makeResearchPaper("Clean Code", Date.valueOf("2023-03-03"), 50, "AlmatyKitap", "pakita");
-		currentUser.makeResearchPaper("Retake", Date.valueOf("2023-01-03"), 40, "Atamura", "pakita");
-//		currentUser.printPapersByPublishedDate();
-		currentUser.printPapersByArticleLength();
-		currentUser.getCitation(0, "Bibtex");
-		currentUser.joinParticipant(u3);
-		currentUser.viewParticipantsOfProject();
-
-		session.logout();
-		currentUser = (Researcher) session.getCurrentUser();
-		System.out.println(currentUser);
+//		Session session = new Session();
+//		session.login(admin.showDatabase(), "ilias", "1234");
+//
+//		Researcher currentUser = (Researcher) session.getCurrentUser();
+//		System.out.println(currentUser);
+//
+//		currentUser.makeResearchPaper("Clean Code", Date.valueOf("2023-03-03"), 50, "AlmatyKitap", "pakita");
+//		currentUser.makeResearchPaper("Retake", Date.valueOf("2023-01-03"), 40, "Atamura", "pakita");
+////		currentUser.printPapersByPublishedDate();
+//		currentUser.printPapersByArticleLength();
+//		currentUser.getCitation(0, "Bibtex");
+//		currentUser.joinParticipant(u3);
+//		currentUser.viewParticipantsOfProject();
+//
+//		session.logout();
+//		currentUser = (Researcher) session.getCurrentUser();
+//		System.out.println(currentUser);
 		
 //		Admin admin = new Admin("admin", "777", "Bibolat", "Kaldybai", "22B000000", EmployeePost.ADMIN, 124000, Date.valueOf("2023-03-22"));
 //		User u2 = new Manager("dias", "1111", "Dias", "Ermek", "22B6564684", EmployeePost.MANAGER, 114000, Date.valueOf("2023-02-01"), ManagerType.OR);
@@ -112,32 +117,39 @@ public class Test {
 //		System.out.println("Letter of GPA" + " " + overallMark.getIteralMark());
 
 
-//		Admin admin2 = new Admin("admin", "777", "Bibolat", "Kaldybay", "22B030480", EmployeePost.ADMIN, 777007, Date.valueOf("2023-03-22"));
-//
-//		Teacher teacher = new Teacher("teacher1", "password", "Alice", "Smith", "T456", EmployeePost.TEACHER, 50000, new Date(11, 11, 11), "Computer Science", TeacherRank.LECTURER, 4.5);
-//
-//		admin2.addUser(teacher, "777");
-//
-//		Session session2 = new Session();
-//
-//		session2.login(admin2.showDatabase(), "teacher1", "password");
-//
-//		Course course = new Course("Programming 101", "CS101", 1, Faculty.SITE, CourseType.BASIC);
-//
-//		Student student = new Student("student1", "password", "John", "Doe", "S123", 19, Degree.BACHELOR, 2, "Computer Science", Faculty.SITE, 3.5, "Good standing", null, 11);
-//		course.teaches(teacher);
-//		student.registerToCourse(course);
-//		double point = 25;
-//		AttestationType type = AttestationType.FIRST;
-//		teacher.putMark(course, student, point, type);
-//		System.out.println("Student's Marks:");
-//		for (Entry<Course, Mark> entry : student.getMarks().entrySet()) {
-//			Course courseEntry = entry.getKey();
-//			Mark markEntry = entry.getValue();
-//			System.out.println("Course: " + courseEntry.getName() + ", Mark: " + markEntry);
-//		}
-//
-//		session2.logout();
+		Admin admin2 = new Admin("admin", "777", "Bibolat", "Kaldybay", "22B030480", EmployeePost.ADMIN, 777007, Date.valueOf("2023-03-22"));
+
+		Teacher teacher = new Teacher("teacher1", "password", "Alice", "Smith", "T456", EmployeePost.TEACHER, 50000, new Date(11, 11, 11), "Computer Science", TeacherRank.LECTURER, 4.5);
+
+		admin2.addUser(teacher, "777");
+
+		Session session2 = new Session();
+
+		session2.login(admin2.showDatabase(), "teacher1", "password");
+
+		Course course = new Course("Programming 101", "CS101", 1, Faculty.SITE, CourseType.BASIC);
+
+		Student student = new Student("student1", "password", "John", "Doe", "S123", 19, Degree.BACHELOR, 2, "Computer Science", Faculty.SITE, 3.5, "Good standing", null, 11);
+		course.teaches(teacher);
+		student.registerToCourse(course);
+		double point = 25;
+		AttestationType type = AttestationType.FIRST;
+		teacher.putMark(course, student, point, type);
+		System.out.println("Student's Marks:");
+		for (Entry<Course, Mark> entry : student.getMarks().entrySet()) {
+			Course courseEntry = entry.getKey();
+			Mark markEntry = entry.getValue();
+			System.out.println("Course: " + courseEntry.getName() + ", Mark: " + markEntry);
+		}
+		
+		Data.database.serialize(Data.database);
+
+		Data deserializedData = Data.database.deserialize();
+		System.out.println(deserializedData.deserialize());
+
+		
+
+		session2.logout();
 	}
 }
 

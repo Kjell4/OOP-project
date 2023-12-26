@@ -1,10 +1,11 @@
 package Research;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import Exceptions.NoSuchFormatException;
 
-public class ResearchPaper implements Comparable<ResearchPaper>{
+public class ResearchPaper implements Comparable<ResearchPaper>, Serializable{
 	private String topic;
 	private Date date;
 	private int pages;
