@@ -7,6 +7,7 @@ import Research.ResearchProject;
 import SystemParts.Course;
 import SystemParts.Mark;
 import SystemParts.Order;
+import Users.Researcher;
 import Users.Student;
 import Users.Teacher;
 import Users.User;
@@ -26,6 +27,7 @@ public class Data {
 	public Vector<ResearchPaper> papers = new Vector<>();
 	public Vector<ResearchProject> projects = new Vector<>();
 	public Vector<News> news = new Vector<>();
+	public Vector<Researcher> participants = new Vector<>();
 	public Vector<User> getData() {
 		return users;
 	}
