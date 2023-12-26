@@ -8,8 +8,9 @@ import java.util.Comparator;
 public class OrderComparator implements Comparator<News> {
     @Override
     public int compare(News n, News m) {
-        if(n.getNewsType() == NewsType.RES && m.getNewsType() == NewsType.RES) return 1;
-        return -1;
+        if(n.getNewsType() == NewsType.RES) return -1;
+        else if (m.getNewsType() == NewsType.RES) return -1;
+        return 1;
     }
 
 

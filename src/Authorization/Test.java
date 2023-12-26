@@ -1,4 +1,5 @@
 package Authorization;
+import java.io.Serializable;
 import java.sql.Date;
 
 import java.util.Map.Entry;
@@ -8,37 +9,53 @@ import Database.Data;
 import Users.*;
 import Enums.*;
 import SystemParts.*;
+import Users.User;
 
 
 
-public class Test {
+public class Test implements Serializable {
 
+<<<<<<< HEAD
 	public static void main(String[] args) throws Exception {
 		
+=======
+	public static void main(String[] args) throws ImposterException {
+
+>>>>>>> db7c0471e90327e2f467d548a3ac23ecf85513c4
 
 		//Checking for request method
 		//
-//		Admin adminEren = new Admin("eren", "745f0", "Eren", "Yeager", "22B040578", EmployeePost.ADMIN, 145000, Date.valueOf("2023-02-21"));
-//		Manager managerAzamat = new Manager("azzza", "aboba", "Azamat", "Alpysbay", "22B010445", EmployeePost.MANAGER, 451000, Date.valueOf("2022-12-12"), ManagerType.DEPARTMENT);
-//		managerAzamat.addRequest(adminEren.makeRequest("Complain", "Wifi is not working", OrderType.COMPLAINT));
-//		System.out.println(managerAzamat.viewRequests());
-//		Dean dean = new Dean("Obama", "Barack", "DS78450A", "passworddd");
-//		dean.signOrder(adminEren.getEmployeeOrder());
-//		managerAzamat.addRequest(adminEren.getEmployeeOrder());
-//		System.out.println(managerAzamat.viewRequests());
-//
+		Admin adminEren = new Admin("eren", "745f0", "Eren", "Yeager", "22B040578", EmployeePost.ADMIN, 145000, Date.valueOf("2023-02-21"));
+		Manager managerAzamat = new Manager("azzza", "aboba", "Azamat", "Alpysbay", "22B010445", EmployeePost.MANAGER, 451000, Date.valueOf("2022-12-12"), ManagerType.DEPARTMENT);
+		managerAzamat.addRequest(adminEren.makeRequest("Complain", "Wifi is not working", OrderType.COMPLAINT));
+		System.out.println(managerAzamat.viewRequests());
+		Dean dean = new Dean("Obama", "Barack", "DS78450A", "passworddd");
+		dean.signOrder(adminEren.getEmployeeOrder());
+		managerAzamat.addRequest(adminEren.getEmployeeOrder());
+		System.out.println(managerAzamat.viewRequests());
+		Student boba = new Student("student1", "password", "John", "Doe", "S123", 19, Degree.BACHELOR, 2, "Computer Science", Faculty.SITE, 3.5, "Good standing", null, 11);
+		TechSupportSpecialist tech = new TechSupportSpecialist("login@gmail.com", "passwprd", "Biba", "Buba", "245ds4a5", EmployeePost.TECHSUPPORT, 14545450, Date.valueOf("2022-05-10"));
+		tech.viewOrders();
+		tech.addOrder(boba.makeRequest("Fx", "How to pay for reatke and when it will be?", OrderType.FX_RETAKE));
+		tech.acceptOrder(boba.getOrder());
+		tech.viewOrders();
+
 //		//Checking for news
 //		//
-//		NewsSection newsSection = new NewsSection();
-//		News newsLessonPostponed = new News("LESSON POSTPONED, Hangi", "Because of my business trip, tomorrow lessons will " +
-//				"be postponed to unknown date", Date.valueOf("2023-12-25"), NewsType.PPONE);
-//		News newsSomeRes = new News("RESEAAAARCH!", "Some research happened, go check", Date.valueOf("2023-12-23"), NewsType.RES);
-//		newsSection.addNews(newsLessonPostponed);
-//		newsSection.addNews(newsSomeRes);
-//		newsSection.writeComment(newsSomeRes, "WOW, what a news about some research!", "Azamat", Date.valueOf("2023-12-24"));
-//		newsSection.writeComment(newsLessonPostponed, "Ok", "Anonim", Date.valueOf("2023-12-25"));
-//		newsSection.writeComment(newsSomeRes, "Cool research", "Tramp", Date.valueOf("2023-12-25"));
-//		newsSection.viewNews();
+		NewsSection newsSection = new NewsSection();
+		News newsLessonPostponed = new News("LESSON POSTPONED, Hangi", "Because of my business trip, tomorrow lessons will " +
+				"be postponed to unknown date", Date.valueOf("2023-12-25"), NewsType.PPONE);
+		News newsSomeRes = new News("RESEAAAARCH!", "Some research happened, go check", Date.valueOf("2023-12-23"), NewsType.RES);
+		newsSection.addNews(newsLessonPostponed);
+		newsSection.addNews(newsSomeRes);
+		newsSection.writeComment(newsSomeRes, "WOW, what a news about some research!", "Azamat", Date.valueOf("2023-12-24"));
+		newsSection.writeComment(newsLessonPostponed, "Ok", "Anonim", Date.valueOf("2023-12-25"));
+		newsSection.writeComment(newsSomeRes, "Cool research", "Tramp", Date.valueOf("2023-12-25"));
+		newsSection.viewNews();
+
+		MessageSection messageSection = new MessageSection();
+		messageSection.writeMessage("bro, how are you?", managerAzamat, adminEren, Date.valueOf("2023-12-24"));
+		adminEren.checkMessages();
 
 //		Admin admin = new Admin("admin", "777", "Bibolat", "Kaldybai", "22B000000", EmployeePost.ADMIN, 124000, Date.valueOf("2023-03-22"));
 //		
@@ -55,6 +72,53 @@ public class Test {
 //		Data deserializedData = Data.database.deserialize();
 //		System.out.println(deserializedData.deserialize());
 
+<<<<<<< HEAD
+=======
+//
+//		Admin admin = new Admin("admin", "777", "Bibolat", "Kaldybai", "22B000000", EmployeePost.ADMIN, 124000, Date.valueOf("2023-03-22"));
+//
+//		User u = new Researcher("ilias", "1234", "Ilias", "Bekturgan", "22B030327");
+//
+//		User u3 = new Researcher("Elnur", "1234", "Elnur", "Abdulla", "22B030000");
+
+//		User user = new Student("student1", "password", "John", "Doe", "S123", 19, Degree.BACHELOR, 2, "Computer Science", Faculty.SITE, 3.5, "Good standing", null, 11);
+//
+//		Data data = new Data(user);
+//
+//		try {
+//
+//			data.serialize();
+//
+//			User deserializedUser = data.deserialize();
+//
+//			System.out.println(deserializedUser);
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
+//	}
+//}
+
+	Student student = new Student("student1", "password", "John", "Doe", "S123", 19, Degree.BACHELOR, 2, "Computer Science", Faculty.SITE, 3.5, "Good standing", null, 11);
+
+		Data data = new Data();
+		data.students.add(student);
+
+
+		data.serializeStudent();
+
+		try {
+			Vector<Student> deserializedStudents = data.deserializeStudent();
+			System.out.println(deserializedStudents);
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+	}
+}
+// 		serialization
+//		admin.addUser(u, "777");
+//		admin.addUser(u3, "777");
+//
+>>>>>>> db7c0471e90327e2f467d548a3ac23ecf85513c4
 //		Session session = new Session();
 //		session.login(admin.showDatabase(), "ilias", "1234");
 //
@@ -72,15 +136,19 @@ public class Test {
 //		session.logout();
 //		currentUser = (Researcher) session.getCurrentUser();
 //		System.out.println(currentUser);
+<<<<<<< HEAD
 		
+=======
+
+>>>>>>> db7c0471e90327e2f467d548a3ac23ecf85513c4
 //		Admin admin = new Admin("admin", "777", "Bibolat", "Kaldybai", "22B000000", EmployeePost.ADMIN, 124000, Date.valueOf("2023-03-22"));
 //		User u2 = new Manager("dias", "1111", "Dias", "Ermek", "22B6564684", EmployeePost.MANAGER, 114000, Date.valueOf("2023-02-01"), ManagerType.OR);
 //		admin.addUser(u2, "777");
-//		
+//
 //		Session session = new Session();
 //		session.login(admin.showDatabase() , "dias", "1111");
 //		Manager currentUser = (Manager)session.getCurrentUser();
-//		
+//
 //		currentUser.addCourses(new Course("OOP", "CSCI2106", 5, Faculty.SITE, CourseType.BASIC));
 //		System.out.println(currentUser.getCourses());
 //
@@ -117,6 +185,7 @@ public class Test {
 //		System.out.println("Letter of GPA" + " " + overallMark.getIteralMark());
 
 
+<<<<<<< HEAD
 		Admin admin2 = new Admin("admin", "777", "Bibolat", "Kaldybay", "22B030480", EmployeePost.ADMIN, 777007, Date.valueOf("2023-03-22"));
 
 		Teacher teacher = new Teacher("teacher1", "password", "Alice", "Smith", "T456", EmployeePost.TEACHER, 50000, new Date(11, 11, 11), "Computer Science", TeacherRank.LECTURER, 4.5);
@@ -152,6 +221,36 @@ public class Test {
 		session2.logout();
 	}
 }
+=======
+//		Admin admin2 = new Admin("admin", "777", "Bibolat", "Kaldybay", "22B030480", EmployeePost.ADMIN, 777007, Date.valueOf("2023-03-22"));
+//
+//		Teacher teacher = new Teacher("teacher1", "password", "Alice", "Smith", "T456", EmployeePost.TEACHER, 50000, new Date(11, 11, 11), "Computer Science", TeacherRank.LECTURER, 4.5);
+//
+//		admin2.addUser(teacher, "777");
+//
+//		Session session2 = new Session();
+//
+//		session2.login(admin2.showDatabase(), "teacher1", "password");
+//
+//		Course course = new Course("Programming 101", "CS101", 1, Faculty.SITE, CourseType.BASIC);
+//
+//		Student student = new Student("student1", "password", "John", "Doe", "S123", 19, Degree.BACHELOR, 2, "Computer Science", Faculty.SITE, 3.5, "Good standing", null, 11);
+//		course.teaches(teacher);
+//		student.registerToCourse(course);
+//		double point = 25;
+//		AttestationType type = AttestationType.FIRST;
+//		teacher.putMark(course, student, point, type);
+//		System.out.println("Student's Marks:");
+//		for (Entry<Course, Mark> entry : student.getMarks().entrySet()) {
+//			Course courseEntry = entry.getKey();
+//			Mark markEntry = entry.getValue();
+//			System.out.println("Course: " + courseEntry.getName() + ", Mark: " + markEntry);
+//		}
+//
+//		session2.logout();
+
+
+>>>>>>> db7c0471e90327e2f467d548a3ac23ecf85513c4
 
 
 
@@ -172,3 +271,5 @@ public class Test {
 //
 //	}
 //}
+
+

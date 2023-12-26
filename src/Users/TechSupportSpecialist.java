@@ -16,14 +16,6 @@ public class TechSupportSpecialist extends Employee {
     }
     
     Data database = new Data();
-
-    public void helloWorld() {
-        System.out.println("Hello");
-    }
-    
-    public void helloElnur() {
-    	System.out.println("Hello commit to Elnur :)");
-    }
     
     public void addOrder(Order order) {
         database.orders.add(order);

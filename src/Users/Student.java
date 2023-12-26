@@ -27,6 +27,7 @@ public class Student extends User implements Serializable, Comparable<Object> {
 	private Organization organization;
 	private int credits;
 	private HashMap<Course, Mark> marks = new HashMap<Course, Mark>();
+	private Order order;
 
 	public Student(String login, String password, String name, String surname, String id, int limitOfCredit, Degree degree, int year, String major, Faculty faculty, double gpa, String transcript, Organization organization, int credits) {
 		super(login, password, name, surname, id);
@@ -41,10 +42,21 @@ public class Student extends User implements Serializable, Comparable<Object> {
 		this.organization = organization;
 		this.credits = credits;
 		this.marks = marks;
+		this.order = null;
 	}
 	public Order makeRequest(String title, String content, OrderType orderType) {
-		return new Order(title, content, this.getId(), orderType);
+		this.order = new Order(title, content, this.getId(), orderType);
+		return order;
 	}
+
+	public Order getOrder() {
+		return order;
+	}
+
+	public void setOrder(Order order) {
+		this.order = order;
+	}
+
 	public int getLimitOfCredit() {
 		return limitOfCredit;
 	}
