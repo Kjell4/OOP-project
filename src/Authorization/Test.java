@@ -29,6 +29,12 @@ public class Test implements Serializable {
 		dean.signOrder(adminEren.getEmployeeOrder());
 		managerAzamat.addRequest(adminEren.getEmployeeOrder());
 		System.out.println(managerAzamat.viewRequests());
+		Student boba = new Student("student1", "password", "John", "Doe", "S123", 19, Degree.BACHELOR, 2, "Computer Science", Faculty.SITE, 3.5, "Good standing", null, 11);
+		TechSupportSpecialist tech = new TechSupportSpecialist("login@gmail.com", "passwprd", "Biba", "Buba", "245ds4a5", EmployeePost.TECHSUPPORT, 14545450, Date.valueOf("2022-05-10"));
+		tech.viewOrders();
+		tech.addOrder(boba.makeRequest("Fx", "How to pay for reatke and when it will be?", OrderType.FX_RETAKE));
+		tech.acceptOrder(boba.getOrder());
+		tech.viewOrders();
 
 //		//Checking for news
 //		//
