@@ -47,27 +47,27 @@ public class Test {
 //		newsSection.writeComment(newsSomeRes, "Cool research", "Tramp", Date.valueOf("2023-12-25"));
 //		newsSection.viewNews();
 
-		Admin admin = new Admin("admin", "777", "Bibolat", "Kaldybai", "22B000000", EmployeePost.ADMIN, 124000, Date.valueOf("2023-03-22"));
-		
-		User u = new Researcher("ilias", "1234", "Ilias", "Bekturgan", "22B030327");
-		
-		User u3 = new Researcher("Elnur", "1234", "Elnur", "Abdulla", "22B030000");
-
-		admin.addUser(u, "777");
-		admin.addUser(u3, "777");
-		Data.database.users.add(new Researcher("login1", "password1", "name1", "surname1", "id1"));
-		Data.database.users.add(new Researcher("login1", "password1", "name2", "surname2", "id1"));
-		Data.database.serialize(Data.database);
-
-		Data deserializedData = Data.database.deserialize();
-		System.out.println(deserializedData.deserialize());
-
-		Session session = new Session();
-		session.login(admin.showDatabase(), "ilias", "1234");
-
-		Researcher currentUser = (Researcher) session.getCurrentUser();
-		System.out.println(currentUser);
+//		Admin admin = new Admin("admin", "777", "Bibolat", "Kaldybai", "22B000000", EmployeePost.ADMIN, 124000, Date.valueOf("2023-03-22"));
 //
+//		User u = new Researcher("ilias", "1234", "Ilias", "Bekturgan", "22B030327");
+//
+//		User u3 = new Researcher("Elnur", "1234", "Elnur", "Abdulla", "22B030000");
+//
+//		admin.addUser(u, "777");
+//		admin.addUser(u3, "777");
+//		Data.database.users.add(new Researcher("login1", "password1", "name1", "surname1", "id1"));
+//		Data.database.users.add(new Researcher("login1", "password1", "name2", "surname2", "id1"));
+//		Data.database.serialize(Data.database);
+//
+//		Data deserializedData = Data.database.deserialize();
+//		System.out.println(deserializedData.deserialize());
+//
+//		Session session = new Session();
+//		session.login(admin.showDatabase(), "ilias", "1234");
+//
+//		Researcher currentUser = (Researcher) session.getCurrentUser();
+//		System.out.println(currentUser);
+////
 //		currentUser.makeResearchPaper("Clean Code", Date.valueOf("2023-03-03"), 50, "AlmatyKitap", "pakita");
 //		currentUser.makeResearchPaper("Retake", Date.valueOf("2023-01-03"), 40, "Atamura", "pakita");
 ////		currentUser.printPapersByPublishedDate();
@@ -123,7 +123,7 @@ public class Test {
 //		System.out.println("Overall GPA: " + overallMark.getGpa());
 //		System.out.println("Letter of GPA" + " " + overallMark.getIteralMark());
 
-
+//
 //		Admin admin2 = new Admin("admin", "777", "Bibolat", "Kaldybay", "22B030480", EmployeePost.ADMIN, 777007, Date.valueOf("2023-03-22"));
 //
 //		Teacher teacher = new Teacher("teacher1", "password", "Alice", "Smith", "T456", EmployeePost.TEACHER, 50000, new Date(11, 11, 11), "Computer Science", TeacherRank.LECTURER, 4.5);
@@ -147,7 +147,7 @@ public class Test {
 //			Course courseEntry = entry.getKey();
 //			Mark markEntry = entry.getValue();
 //			System.out.println("Course: " + courseEntry.getName() + ", Mark: " + markEntry);
-//		}	
+//		}
 //
 //		session2.logout();
 //	}
@@ -170,5 +170,42 @@ public class Test {
 //			System.out.println("Course: " + courseEntry.getName() + ", Mark: " + markEntry);
 //		}
 //
+//		User atsushi = new Teacher("atsushi", "password", "Alice", "Smith", "T456", EmployeePost.TEACHER, 50000, new Date(11, 11, 11), "Computer Science", TeacherRank.LECTURER, 4.5);
+////		User pakita = new Student("pakita", "password", "Pakizar", "Shamoi", "S123", 19, Degree.BACHELOR, 2, "Computer Science", Faculty.SITE, 3.5, "Good standing", null, 11);
+//		Admin admin = new Admin("admin", "777", "Bibolat", "Kaldybai", "22B000000", EmployeePost.ADMIN, 124000, Date.valueOf("2023-03-22"));
+////		admin.addUser(pakita, "777");
+//		admin.addUser(atsushi, "777");
+//
+//		Session session = new Session();
+//		session.login(admin.showDatabase() , "atsushi", "password");
+//		Teacher currentUser = (Teacher)session.getCurrentUser();
+//
+//		Student pakita = new Student("pakita", "password", "Pakizar", "Shamoi", "S123", 19, Degree.BACHELOR, 2, "Computer Science", Faculty.SITE, 3.5, "Good standing", null, 11);
+//		Course course = new Course("Programming 101", "CS101", 1, Faculty.SITE, CourseType.BASIC);
+//		course.teaches(currentUser);
+//		pakita.registerToCourse(course);
+//		double point = 25;
+//		AttestationType type = AttestationType.FIRST;
+//		currentUser.putMark(course, pakita, point, type);
+//		for (Entry<Course, Mark> entry : pakita.getMarks().entrySet()) {
+//			Course courseEntry = entry.getKey();
+//			Mark markEntry = entry.getValue();
+//			System.out.println("Course: " + courseEntry.getName() + ", Mark: " + markEntry);
+//		}
+//
+//		session.logout();
+//
+//		Session session2 = new Session();
+//		session.login(admin.showDatabase() , "pakita", "password");
+//		Student currentUser2 = (Student)session.getCurrentUser();
+//
+//		Teacher atsushi = new Teacher("atsushi", "password", "Alice", "Smith", "T456", EmployeePost.TEACHER, 50000, new Date(11, 11, 11), "Computer Science", TeacherRank.LECTURER, 4.5);
+//		Course course = new Course("Programming 101", "CS101", 1, Faculty.SITE, CourseType.BASIC);
+//		currentUser2.registerToCourse();
+//		course.teaches(atsushi);
+//		currentUser2.dropCourse(course);
+//		System.out.println(currentUser2.getCourse());
+//
+//		session.logout();
 	}
 }

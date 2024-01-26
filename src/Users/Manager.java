@@ -61,6 +61,7 @@ public class Manager extends Employee implements Serializable, Comparable<Object
 		return true;
 	}
 
+
 	public boolean removeNews(News news) {
 		if (!database.news.contains(news)) return false;
 		database.news.remove(news);
